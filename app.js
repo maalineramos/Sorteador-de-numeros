@@ -13,7 +13,9 @@ function sortear() {
         numero = obterNumAleatorio(de,ate);    
         sorteados.push(numero);
     }
-    alert(sorteados);
+    
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`
 }
 
 function obterNumAleatorio(min, max) {
