@@ -38,3 +38,29 @@ function reiniciar() {
     document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';
     alterarStatusBotao();
 }
+
+function configurarNavegacaoPorEnter() {
+    let campos = ['quantidade', 'de', 'ate'];
+
+    campos.forEach((id, indice) => {
+        let campoAtual = document.getElementById(id);
+
+        campoAtual.addEventListener('keydown', (evento) => {
+            if (evento.key !== 'Enter') {
+                return;
+            }
+
+            evento.preventDefault();
+
+            let proximoCampoId = campos[indice + 1];
+
+            if (!proximoCampoId) {
+                return;
+            }
+
+            document.getElementById(proximoCampoId).focus();
+        });
+    });
+}
+
+configurarNavegacaoPorEnter();
